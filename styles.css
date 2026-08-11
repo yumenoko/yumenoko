@@ -118,6 +118,12 @@
   overflow:hidden;
   transform:none;
 }
+.round-link .speech-heart{
+  margin-left:.14em;
+  color:#e58b20;
+  font-size:.86em;
+  line-height:1;
+}
 @media(max-width:560px){
   .character-speech{padding:0 24px 0 6px}
   .round-link .speech-text{font-size:clamp(12px,14cqi,15px)}
