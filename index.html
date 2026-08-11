@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ゆめのこ手作娃衣作品與系列展示">
+  <title>ゆめのこ手作娃衣｜夢から紡ぐ、小さな衣たち</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Shippori+Mincho:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="ゆめのこ手作娃衣首頁"><span>ゆめのこ手作娃衣</span></a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="main-nav">目錄</button>
+    <nav id="main-nav" aria-label="主要導覽"><a href="#works">作品</a><a href="#story">關於</a><a href="#contact">聯絡</a></nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <h1 id="hero-title" class="yumenoko-title">
+          <img class="title-banner" src="assets/yumenoko-title.png" alt="ゆめのこ手作娃衣——夢から紡ぐ、小さな衣たち">
+        </h1>
+        <a class="round-link" href="#works" aria-label="觀看全作品">
+          <span class="character-speech">
+            <svg class="speech-outline" viewBox="0 0 190 90" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M154 46 C156 39 154 31 148 24 C136 10 111 5 82 6 C40 6 9 21 7 43 C5 65 36 82 80 83 C116 84 143 73 153 57 L184 47 L154 46 Z"></path>
+            </svg>
+            <span class="speech-text">觀看全作品</span>
+          </span>
+          <img class="works-character" src="assets/yume-mascot.png" alt="">
+        </a>
+      </div>
+    </section>
+
+    <section class="works" id="works" aria-labelledby="works-title">
+      <div class="section-head">
+        <div><h2 id="works-title">ゆめのこへようこそ</h2><small class="section-kicker">Welcome to Yumenoko</small></div>
+      </div>
+      <div class="filter-bar" id="filter-bar" role="group" aria-label="作品分類"></div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="story" id="story">
+      <h2>ゆめのこ，<br>以娃衣收藏<br>不同時代的浪漫。</h2>
+      <div><p>從復古喫茶、大正浪漫到異國風景，將旅途中遇見的色彩、文化，以及喜歡的故事，做成一件件小小的衣服。</p></div>
+    </section>
+  </main>
+
+  <footer id="contact"><div class="footer-mark"><img src="assets/footer-yume-mark.png" alt="夢"></div><div class="footer-thread"><a href="https://www.threads.net/@e61124" target="_blank" rel="noopener noreferrer">Threads: @e61124</a></div></footer>
+
+  <dialog class="lightbox" aria-label="作品相簿"><button class="close" aria-label="關閉">×</button><button class="prev" aria-label="上一張">←</button><div class="lightbox-art photo-lightbox"></div><div class="lightbox-caption"><span class="counter"></span><h3></h3></div><button class="next" aria-label="下一張">→</button></dialog>
+  <script src="portfolio-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
