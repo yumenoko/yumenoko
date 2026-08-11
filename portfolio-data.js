@@ -1,7 +1,7 @@
 window.PORTFOLIO_SERIES = [
   {
     key: 'omamori', short: '祈願御守', name: '祈願御守和服系列', folder: '祈願御守和服系列',
-    description: '把祝福編織進小小衣裳，為每一位陪伴日常的孩子繫上一份心願。',
+    description: '御守結為每一位陪伴日常的孩子繫上一份祝福。',
     items: [
       { file: '錦乃 にしきの 的複本.jpg', title: '錦乃・花音' },
       { file: '2507180733665908.jpg', title: '鈴姬' },
@@ -18,7 +18,7 @@ window.PORTFOLIO_SERIES = [
   },
   {
     key: 'taisho', short: '大正浪漫', name: '大正浪漫喫茶店系列', folder: '大正浪漫喫茶店系列',
-    description: '以蕾絲、蝴蝶結與浪漫色調，復刻老喫茶店裡的優雅午後。',
+    description: '以格紋、蝴蝶結與浪漫色調，復刻老喫茶店裡的優雅午後。',
     items: [
       { file: '2511230909736879.jpg', title: '撫子' },
       { file: '2511230909734803.jpg', title: '撫子' },
@@ -36,7 +36,7 @@ window.PORTFOLIO_SERIES = [
   },
   {
     key: 'mini', short: '迷你和服', name: '迷你迷你小和服系列', folder: '迷你迷你小和服系列',
-    description: '縮小的不只是尺寸，還有藏在布花、腰帶與結飾裡的一整座細節世界。',
+    description: '縮小的不只是尺寸，還有藏在布花與結飾裡的一整座細節世界。',
     items: [
       { file: '2507140726529559.jpg', title: '迷你迷你小和服' },
       { file: '2507140726529982.jpg', title: '晴夏' },
@@ -48,7 +48,7 @@ window.PORTFOLIO_SERIES = [
   },
   {
     key: 'season-hakama', short: '季節袴', name: '季節袴系列', folder: '季節袴系列',
-    description: '隨四季更迭變換花色，把季節風景收進袖口與裙褶。',
+    description: '隨四季更迭變換花色，把自然風景收進袖口與裙褶。',
     items: [
       { file: '2509190821190467.jpg', title: '星之雫' }, { file: '2509190821190694.jpg', title: '櫻之吻' },
       { file: '2509190821191149.jpg', title: '淡月姫' }, { file: '2509190821190807.jpg', title: '季節袴' },
@@ -62,7 +62,7 @@ window.PORTFOLIO_SERIES = [
   },
   {
     key: 'season-kimono', short: '季節和服', name: '季節和服系列', folder: '季節和服系列',
-    description: '以季節色彩與花草紋樣，編成適合每一段時光的小和服。',
+    description: '以季節色彩，揉製成迎合當季氛圍的小和服。',
     items: [
       { file: '2511230909743875.jpg', title: '春日和' }, { file: '2511230909745436.jpg', title: '春日和' },
       { file: '2601150989406355.jpg', title: '春日和' }, { file: '2605131168909296.jpg', title: '硝子花', rowStart: true },
@@ -71,7 +71,7 @@ window.PORTFOLIO_SERIES = [
   },
   {
     key: 'thai', short: '泰服', name: '泰服系列', folder: '泰服系列',
-    description: '以金色飾邊與明亮織紋，呈現華麗而輕盈的異國服飾。',
+    description: '以金色飾邊與明亮織紋，呈現經典泰式印象。',
     items: [
       { file: '2510180859034545.jpg', title: '薩瓦迪卡' }, { file: '2510180859034546.jpg', title: '薩瓦迪卡' },
       { file: '2510180859034559.jpg', title: '薩瓦迪卡' }, { file: '2607011240198813.jpg', title: '口坤卡' },
@@ -81,7 +81,7 @@ window.PORTFOLIO_SERIES = [
   },
   {
     key: 'konpeito', short: '星降金平糖', name: '聯名限定・星降る金平糖', folder: '聯名限定 - 星降る金平糖 （feat. Pei的裁縫小舖）',
-    description: '與 Pei 的裁縫小舖共同製作，將星光與糖果般的色彩縫進限定衣裝。',
+    description: '與 Pei 的裁縫小舖共同製作，用星光與糖果般的色彩彩繪有寶寶陪伴的日常。',
     items: [
       { file: '2606291237126341.jpg' }, { file: '2606291237129136.jpg' },
       { file: '2606291237129376.jpg' }, { file: '2606291237129493.jpg' }
@@ -98,14 +98,14 @@ window.PORTFOLIO_SERIES = [
       { file: 'IMG_20260812_004132_134.jpg' }
     ]
   },
-  { key: 'abe', short: '阿北裝', name: '阿北裝系列', folder: '阿北裝系列', description: '帶著熟悉生活感與幽默氣息的小小日常衣裝。', items: [
+  { key: 'abe', short: '阿北裝', name: '阿北裝系列', folder: '阿北裝系列', description: '帶著熟悉生活感與幽默氣息的小阿北，是你最棒的飯友。', items: [
     { file: 'IMG_20260812_004050_912.jpg' },
     { file: '阿北裝 (2).jpg' },
     { file: '阿北裝 (3).jpg' },
     { file: '阿北裝.jpg' }
   ] },
   { key: 'jirai', short: '地雷系袴', name: '地雷系袴系列', folder: '地雷系袴系列', description: '將甜美、暗色與袴的輪廓混搭成獨特個性。', items: [{ file: '2510180859031527.jpg', title: '心夜／心愛' }] },
-  { key: 'sari', short: '印度紗麗', name: '印度紗麗系列', folder: '印度紗麗系列', description: '以層疊布料、珠飾與繽紛色彩呈現異國華美。', items: [
+  { key: 'sari', short: '印度紗麗', name: '印度紗麗系列', folder: '印度紗麗系列', description: '以層疊布料、珠飾與繽紛色彩呈現異國華美和神秘感。', items: [
     { file: '2605151171932026.jpg', title: '蒂雅公主' },
     { file: '764906882_17972678424110232_603608017152939590_n.webp', title: '娜雅公主／蒂雅公主' }
   ] },
@@ -120,7 +120,7 @@ window.PORTFOLIO_SERIES = [
   ] },
   {
     key: 'mizuhiki-wagashi-apron', short: '水引和菓子圍裙', name: '水引和菓子圍裙系列', folder: '水引和菓子圍裙系列',
-    description: '以水引結飾與和菓子色彩，編織甜美細緻的小小圍裙風景。',
+    description: '以日本送禮時的水引結飾與和菓子概念，獻上甜美細緻的小小圍裙，每一件都獨一無二。',
     items: [
       { file: 'IMG_20260812_003448_749.jpg' },
       { file: 'IMG_20260812_003450_681.jpg' },
