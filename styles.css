@@ -160,6 +160,7 @@
     break-inside:avoid;
     vertical-align:top;
   }
+  .gallery .work-card.hidden{display:none}
   .gallery .work-card:hover{transform:none}
   .gallery .work-card>.series-photo,
   .gallery .series-lead>.series-photo{
