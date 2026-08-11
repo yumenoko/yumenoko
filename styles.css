@@ -97,6 +97,32 @@
 .speech-text{position:relative;z-index:1;transform:translateX(-3px)}
 @media(max-width:560px){.hero .round-link{width:250px;height:132px;gap:4px}.works-character{width:112px;height:112px}.character-speech{width:132px;height:68px;flex-basis:132px;padding:0 18px 0 6px;font-size:12px}}
 
+/* Keep the CTA label inside the oval portion of the speech bubble. */
+.character-speech{
+  container-type:inline-size;
+  min-width:0;
+  padding:0 30px 0 8px;
+}
+.round-link .speech-text{
+  display:block;
+  width:100%;
+  max-width:100%;
+  min-width:0;
+  margin:0;
+  color:var(--ink);
+  font-size:clamp(12px,14cqi,18px);
+  line-height:1.1;
+  letter-spacing:0;
+  text-align:center;
+  white-space:nowrap;
+  overflow:hidden;
+  transform:none;
+}
+@media(max-width:560px){
+  .character-speech{padding:0 24px 0 6px}
+  .round-link .speech-text{font-size:clamp(12px,14cqi,15px)}
+}
+
 /* Footer emblem and simplified Threads contact */
 .footer-mark{display:flex;align-items:center}
 .footer-mark img{display:block;width:108px;height:108px;object-fit:contain}
