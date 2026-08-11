@@ -129,3 +129,45 @@
 .footer-thread{grid-column:2/4;align-self:center}
 .footer-thread a{display:inline-block;font-size:24px;border-bottom:1px solid currentColor}
 @media(max-width:560px){.footer-mark img{width:88px;height:88px}.footer-thread{grid-column:1}.footer-thread a{font-size:20px}}
+
+/* Pinterest-inspired mobile portfolio: compact two-column masonry. */
+@media(max-width:560px){
+  .works{padding-inline:12px}
+  .filter-bar{-ms-overflow-style:none;scrollbar-width:none}
+  .filter-bar::-webkit-scrollbar{display:none}
+  .gallery{
+    display:block;
+    columns:2;
+    column-gap:10px;
+  }
+  .gallery .series-heading{
+    column-span:all;
+    break-after:avoid;
+    margin:30px 0 14px;
+    padding-top:16px;
+  }
+  .gallery .series-heading:first-child{margin-top:0}
+  .gallery .work-card{
+    display:inline-block;
+    width:100%;
+    margin:0 0 18px;
+    break-inside:avoid;
+    vertical-align:top;
+  }
+  .gallery .work-card:hover{transform:none}
+  .gallery .work-card>.series-photo,
+  .gallery .series-lead>.series-photo{
+    height:auto;
+    aspect-ratio:auto;
+    object-fit:contain;
+  }
+  .gallery .meta{
+    margin-top:7px;
+    padding-top:7px;
+  }
+  .gallery .meta h3{
+    font-size:13px;
+    line-height:1.45;
+    overflow-wrap:anywhere;
+  }
+}
