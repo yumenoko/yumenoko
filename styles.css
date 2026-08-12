@@ -66,8 +66,8 @@
 .series-heading h3{margin:0;font-size:clamp(28px,3vw,46px);font-weight:600;letter-spacing:-.04em}
 .series-heading p{max-width:340px;margin:0;font-size:12px;line-height:1.9}
 .series-lead{grid-column:span 2}
-.series-photo{display:block;width:100%;height:auto;object-fit:cover;object-position:center}
-.series-lead .series-photo{aspect-ratio:4/3}
+.series-photo{display:block;width:100%;height:auto;object-fit:contain;object-position:center}
+.series-lead .series-photo{aspect-ratio:auto}
 .photo-lightbox{background-repeat:no-repeat;background-position:center;background-size:contain}
 @media(max-width:900px){.series-heading{grid-template-columns:auto 1fr}.series-heading p{grid-column:1/-1}.series-lead{grid-column:span 1}}
 @media(max-width:560px){.series-heading{display:block}.series-heading h3{margin:14px 0 10px}.series-heading p{max-width:none}}
@@ -79,7 +79,7 @@
 /* Preserve faces and complete outfits in portfolio photos */
 .gallery .series-lead{grid-column:span 1}
 .gallery{align-items:start}
-.gallery .work-card>.series-photo,.gallery .series-lead>.series-photo{display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;object-position:center;background:#f4ecdc}
+.gallery .work-card>.series-photo,.gallery .series-lead>.series-photo{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;object-position:center;background:transparent}
 .gallery .series-row-start{grid-column-start:1}
 @media(max-width:560px){.gallery .series-row-start{grid-column-start:auto}}
 .filter-bar{flex-wrap:wrap}
@@ -384,4 +384,67 @@ a:focus-visible,
   .lightbox .close,
   .lightbox .prev,
   .lightbox .next{transition:none}
+}
+
+/* Portfolio editorial rhythm: preserve every photograph's natural ratio. */
+.gallery .work-card{
+  min-width:0;
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.gallery .work-card>.series-photo,
+.gallery .series-lead>.series-photo{
+  display:block;
+  width:100%;
+  height:auto;
+  aspect-ratio:auto;
+  object-fit:contain;
+  object-position:center;
+  border:1px solid rgba(32,39,35,.15);
+  border-radius:0;
+  background:transparent;
+  box-shadow:none;
+}
+.gallery .meta{
+  display:block;
+  margin-top:8px;
+  padding-top:7px;
+  border-top:1px solid rgba(32,39,35,.82);
+}
+.gallery .meta h3{
+  margin:0;
+  color:var(--ink);
+  font-family:"Shippori Mincho","Noto Serif TC",serif;
+  font-size:15px;
+  font-weight:600;
+  line-height:1.55;
+  letter-spacing:.015em;
+}
+@media(max-width:560px){
+  .gallery .series-cards{
+    columns:2;
+    column-gap:10px;
+  }
+  .gallery .work-card{
+    display:inline-block;
+    width:100%;
+    margin:0 0 20px;
+    break-inside:avoid;
+    vertical-align:top;
+  }
+  .gallery .work-card>.series-photo,
+  .gallery .series-lead>.series-photo{
+    width:100%;
+    height:auto;
+    aspect-ratio:auto;
+  }
+  .gallery .meta{
+    margin-top:6px;
+    padding-top:4px;
+  }
+  .gallery .meta h3{
+    font-size:13px;
+    line-height:1.5;
+  }
 }
