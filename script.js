@@ -24,13 +24,12 @@ gallery.innerHTML = seriesData.map((series, seriesIndex) => {
     return `<article class="work-card${rowClass}" data-category="${escapeHtml(series.key)}" data-image="${escapeHtml(path)}" tabindex="0"><img class="art series-photo" src="${escapeHtml(path)}" alt="${escapeHtml(title)}"><div class="meta"><h3>${escapeHtml(title)}</h3></div></article>`;
   }).join('');
   const topLink = `<a class="mobile-top series-top" data-category="${escapeHtml(series.key)}" href="#top" aria-label="從${escapeHtml(series.name)}回到頁首">TOP <span aria-hidden="true">↑</span></a>`;
-  return heading + cards + topLink;
+  return `<section class="series-group" data-category="${escapeHtml(series.key)}">${heading}<div class="series-cards">${cards}</div>${topLink}</section>`;
 }).join('');
 
 const cards = [...document.querySelectorAll('.work-card')];
 const filters = document.querySelectorAll('.filter');
-const seriesHeadings = document.querySelectorAll('.series-heading');
-const seriesTopLinks = document.querySelectorAll('.series-top');
+const seriesGroups = document.querySelectorAll('.series-group');
 let browsingCards = cards;
 let current = 0;
 
@@ -38,9 +37,7 @@ filters.forEach(button => button.addEventListener('click', () => {
   filters.forEach(item => item.classList.remove('active'));
   button.classList.add('active');
   const selected = button.dataset.filter;
-  cards.forEach(card => card.classList.toggle('hidden', selected !== 'all' && card.dataset.category !== selected));
-  seriesHeadings.forEach(heading => { heading.hidden = selected !== 'all' && heading.dataset.category !== selected; });
-  seriesTopLinks.forEach(link => { link.hidden = selected !== 'all' && link.dataset.category !== selected; });
+  seriesGroups.forEach(group => { group.hidden = selected !== 'all' && group.dataset.category !== selected; });
 }));
 
 function showWork(index) {
