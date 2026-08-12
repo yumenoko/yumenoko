@@ -266,6 +266,12 @@
     padding-top:16px;
   }
   .gallery .series-heading:first-child{margin-top:0}
+  .gallery .series-top{
+    column-span:all;
+    width:max-content;
+    margin:0 0 4px auto;
+    break-inside:avoid;
+  }
   .gallery .work-card{
     display:inline-block;
     width:100%;
