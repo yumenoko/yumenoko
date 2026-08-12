@@ -9,6 +9,70 @@ const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({ '&': '&
 const photoPath = photo => `assets/返圖區/${photo.file}`;
 let current = 0;
 
+const slideshow = document.querySelector('#return-slideshow');
+const slideImage = slideshow.querySelector('.slide-photo img');
+const slideButton = slideshow.querySelector('.slide-photo');
+const slideCounter = slideshow.querySelector('.slide-counter');
+const slideDots = slideshow.querySelector('.slide-dots');
+const randomIndexes = [...photos.keys()]
+  .sort(() => Math.random() - 0.5)
+  .slice(0, Math.min(10, photos.length));
+let slidePosition = 0;
+let slideTimer;
+let slideSwapTimer;
+
+slideDots.innerHTML = randomIndexes.map((_, index) =>
+  `<button type="button" data-slide="${index}" aria-label="前往第 ${index + 1} 張幻燈片"></button>`
+).join('');
+
+function showSlide(position, restart = true) {
+  if (!randomIndexes.length) {
+    slideshow.hidden = true;
+    return;
+  }
+  slidePosition = (position + randomIndexes.length) % randomIndexes.length;
+  const photoIndex = randomIndexes[slidePosition];
+  const applySlide = () => {
+    slideImage.src = photoPath(photos[photoIndex]);
+    slideImage.alt = `隨機返圖 ${slidePosition + 1}`;
+    slideButton.dataset.photoIndex = photoIndex;
+    slideCounter.textContent = `${String(slidePosition + 1).padStart(2, '0')} / ${String(randomIndexes.length).padStart(2, '0')}`;
+    slideDots.querySelectorAll('button').forEach((dot, index) => {
+      const active = index === slidePosition;
+      dot.classList.toggle('active', active);
+      dot.setAttribute('aria-current', active ? 'true' : 'false');
+    });
+  };
+  window.clearTimeout(slideSwapTimer);
+  if (!slideImage.getAttribute('src') || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    applySlide();
+  } else {
+    slideImage.classList.add('changing');
+    slideSwapTimer = window.setTimeout(applySlide, 360);
+  }
+  if (restart) startSlideshow();
+}
+
+function startSlideshow() {
+  window.clearInterval(slideTimer);
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || randomIndexes.length < 2) return;
+  slideTimer = window.setInterval(() => showSlide(slidePosition + 1, false), 3000);
+}
+
+slideImage.addEventListener('load', () => slideImage.classList.remove('changing'));
+slideshow.querySelector('.slide-prev').addEventListener('click', () => showSlide(slidePosition - 1));
+slideshow.querySelector('.slide-next').addEventListener('click', () => showSlide(slidePosition + 1));
+slideDots.addEventListener('click', event => {
+  const dot = event.target.closest('[data-slide]');
+  if (dot) showSlide(Number(dot.dataset.slide));
+});
+slideshow.addEventListener('mouseenter', () => window.clearInterval(slideTimer));
+slideshow.addEventListener('mouseleave', startSlideshow);
+slideshow.addEventListener('focusin', () => window.clearInterval(slideTimer));
+slideshow.addEventListener('focusout', event => {
+  if (!slideshow.contains(event.relatedTarget)) startSlideshow();
+});
+
 gallery.innerHTML = photos.map((photo, index) => {
   const path = photoPath(photo);
   return `<button class="return-card" type="button" data-index="${index}" aria-label="開啟返圖照片 ${index + 1}"><img src="${escapeHtml(path)}" alt="返圖照片 ${index + 1}" loading="lazy"></button>`;
@@ -29,6 +93,7 @@ gallery.addEventListener('click', event => {
   const card = event.target.closest('.return-card');
   if (card) showPhoto(Number(card.dataset.index));
 });
+slideButton.addEventListener('click', () => showPhoto(Number(slideButton.dataset.photoIndex)));
 dialog.querySelector('.close').addEventListener('click', () => dialog.close());
 dialog.querySelector('.prev').addEventListener('click', () => showPhoto(current - 1));
 dialog.querySelector('.next').addEventListener('click', () => showPhoto(current + 1));
@@ -45,3 +110,5 @@ menuBtn.addEventListener('click', () => {
   const open = nav.classList.toggle('open');
   menuBtn.setAttribute('aria-expanded', open);
 });
+
+showSlide(0);
