@@ -83,8 +83,8 @@ window.PORTFOLIO_SERIES = [
     key: 'konpeito', short: '星降金平糖', name: '聯名限定・星降る金平糖', folder: '聯名限定 - 星降る金平糖 （feat. Pei的裁縫小舖）',
     description: '與 Pei 的裁縫小舖共同製作，用星光與糖果般的色彩彩繪有寶寶陪伴的日常。',
     items: [
-      { file: '2606291237126341.jpg' }, { file: '2606291237129136.jpg' },
-      { file: '2606291237129376.jpg' }, { file: '2606291237129493.jpg' }
+      { file: '2606291237126341.jpg', title: '星降る金平糖' }, { file: '2606291237129136.jpg', title: '星降る金平糖' },
+      { file: '2606291237129376.jpg', title: '星降る金平糖' }, { file: '2606291237129493.jpg', title: '星降る金平糖' }
     ]
   },
   {
