@@ -234,15 +234,15 @@
 .mobile-top{width:max-content;min-width:72px;height:38px;margin:36px 0 0 auto;padding:0 14px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #596046;border-radius:99px;color:#596046;background:rgba(251,244,230,.84);font-size:10px;font-weight:700;letter-spacing:.14em;line-height:1;position:relative;z-index:3;transition:background-color .25s,color .25s,transform .25s}
 .mobile-top span{font-size:15px;line-height:1}
 .mobile-top:hover{background:#596046;color:var(--paper);transform:translateY(-2px)}
-.hero .mobile-top{position:absolute;right:5vw;bottom:12px;margin:0}
 .story .mobile-top{grid-column:1/-1}
 .return-slideshow .slideshow-top{grid-column:2/4;grid-row:2;margin:11px 0 0 auto}
 .size-guide-layout>.mobile-top{grid-column:1/-1}
+.gallery .series-top{grid-column:1/-1;justify-self:end;margin:0 0 12px}
+.gallery .series-top[hidden]{display:none}
 @media(max-width:560px){
   .mobile-top{width:max-content;min-width:70px;height:36px;margin:32px 0 0 auto;padding:0 13px;display:flex;align-items:center;justify-content:center;gap:8px;border:1px solid #596046;border-radius:99px;color:#596046;background:rgba(251,244,230,.84);font-size:10px;font-weight:700;letter-spacing:.14em;line-height:1;position:relative;z-index:3}
   .mobile-top span{font-size:15px;line-height:1}
   .mobile-top:active{background:#596046;color:var(--paper)}
-  .hero .mobile-top{position:absolute;right:20px;bottom:9px;margin:0}
   .story .mobile-top{grid-column:1/-1}
   .return-slideshow{margin-bottom:32px}
   .return-slideshow .slideshow-top{grid-column:1;grid-row:4;margin:10px 2px 2px auto}
