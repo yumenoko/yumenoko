@@ -10,9 +10,8 @@ const photoPath = photo => `assets/返圖區/${photo.file}`;
 let current = 0;
 
 gallery.innerHTML = photos.map((photo, index) => {
-  const title = photo.title || '小小日常';
   const path = photoPath(photo);
-  return `<button class="return-card" type="button" data-index="${index}" aria-label="開啟返圖：${escapeHtml(title)}"><img src="${escapeHtml(path)}" alt="${escapeHtml(title)}" loading="lazy"><span>${escapeHtml(title)}</span></button>`;
+  return `<button class="return-card" type="button" data-index="${index}" aria-label="開啟返圖照片 ${index + 1}"><img src="${escapeHtml(path)}" alt="返圖照片 ${index + 1}" loading="lazy"></button>`;
 }).join('');
 empty.hidden = photos.length > 0;
 
@@ -21,7 +20,7 @@ function showPhoto(index) {
   current = (index + photos.length) % photos.length;
   const photo = photos[current];
   lightboxArt.style.backgroundImage = `url("${photoPath(photo)}")`;
-  lightboxTitle.textContent = photo.title || '小小日常';
+  lightboxTitle.textContent = '';
   counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
   if (!dialog.open) dialog.showModal();
 }
