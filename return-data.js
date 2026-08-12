@@ -1,4 +1,6 @@
 window.RETURN_PHOTOS = [
+  { file: "87896.jpg", title: "小小日常" },
+  { file: "87898.jpg", title: "小小日常" },
   { file: "IMG_20260812_120023_591.jpg", title: "小小日常" },
   { file: "IMG_20260812_120029_791.jpg", title: "小小日常" },
   { file: "IMG_20260812_120047_935.jpg", title: "小小日常" },
