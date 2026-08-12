@@ -5,6 +5,12 @@ const dialog = document.querySelector('.return-lightbox');
 const lightboxArt = dialog.querySelector('.lightbox-art');
 const lightboxTitle = dialog.querySelector('h3');
 const counter = dialog.querySelector('.counter');
+const closeButton = dialog.querySelector('.close');
+const previousButton = dialog.querySelector('.prev');
+const nextButton = dialog.querySelector('.next');
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let lightboxSwapTimer;
+let lightboxCloseTimer;
 const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
 const photoPath = photo => `assets/返圖區/${photo.file}`;
 let current = 0;
@@ -79,14 +85,54 @@ gallery.innerHTML = photos.map((photo, index) => {
 }).join('');
 empty.hidden = photos.length > 0;
 
-function showPhoto(index) {
+function openLightbox() {
+  if (dialog.open) return;
+  dialog.classList.remove('is-closing');
+  dialog.showModal();
+  if (reduceMotion()) {
+    dialog.classList.add('is-visible');
+    return;
+  }
+  requestAnimationFrame(() => requestAnimationFrame(() => dialog.classList.add('is-visible')));
+}
+
+function closeLightbox() {
+  if (!dialog.open || dialog.classList.contains('is-closing')) return;
+  window.clearTimeout(lightboxCloseTimer);
+  dialog.classList.add('is-closing');
+  dialog.classList.remove('is-visible');
+  const finish = () => {
+    if (dialog.open) dialog.close();
+    dialog.classList.remove('is-closing');
+  };
+  if (reduceMotion()) finish();
+  else lightboxCloseTimer = window.setTimeout(finish, 240);
+}
+
+function showPhoto(index, direction = 0) {
   if (!photos.length) return;
   current = (index + photos.length) % photos.length;
   const photo = photos[current];
-  lightboxArt.style.backgroundImage = `url("${photoPath(photo)}")`;
-  lightboxTitle.textContent = '';
-  counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
-  if (!dialog.open) dialog.showModal();
+  const applyPhoto = () => {
+    lightboxArt.style.backgroundImage = `url("${photoPath(photo)}")`;
+    lightboxTitle.textContent = '';
+    counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(photos.length).padStart(2, '0')}`;
+  };
+
+  window.clearTimeout(lightboxSwapTimer);
+  if (!dialog.open || !direction || reduceMotion()) {
+    applyPhoto();
+    openLightbox();
+    return;
+  }
+
+  lightboxArt.classList.remove('swap-prev', 'swap-next');
+  lightboxArt.classList.add(direction < 0 ? 'swap-prev' : 'swap-next', 'is-swapping');
+  lightboxSwapTimer = window.setTimeout(() => {
+    applyPhoto();
+    requestAnimationFrame(() => lightboxArt.classList.remove('is-swapping'));
+    window.setTimeout(() => lightboxArt.classList.remove('swap-prev', 'swap-next'), 280);
+  }, 150);
 }
 
 gallery.addEventListener('click', event => {
@@ -94,14 +140,16 @@ gallery.addEventListener('click', event => {
   if (card) showPhoto(Number(card.dataset.index));
 });
 slideButton.addEventListener('click', () => showPhoto(Number(slideButton.dataset.photoIndex)));
-dialog.querySelector('.close').addEventListener('click', () => dialog.close());
-dialog.querySelector('.prev').addEventListener('click', () => showPhoto(current - 1));
-dialog.querySelector('.next').addEventListener('click', () => showPhoto(current + 1));
-dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+closeButton.addEventListener('click', closeLightbox);
+previousButton.addEventListener('click', () => showPhoto(current - 1, -1));
+nextButton.addEventListener('click', () => showPhoto(current + 1, 1));
+dialog.addEventListener('click', event => { if (event.target === dialog) closeLightbox(); });
+dialog.addEventListener('cancel', event => { event.preventDefault(); closeLightbox(); });
+dialog.addEventListener('close', () => dialog.classList.remove('is-visible', 'is-closing'));
 document.addEventListener('keydown', event => {
   if (!dialog.open) return;
-  if (event.key === 'ArrowLeft') showPhoto(current - 1);
-  if (event.key === 'ArrowRight') showPhoto(current + 1);
+  if (event.key === 'ArrowLeft') showPhoto(current - 1, -1);
+  if (event.key === 'ArrowRight') showPhoto(current + 1, 1);
 });
 
 const menuBtn = document.querySelector('.menu-btn');

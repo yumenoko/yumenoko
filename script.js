@@ -5,6 +5,12 @@ const dialog = document.querySelector('.lightbox');
 const lightboxArt = dialog.querySelector('.lightbox-art');
 const lightboxTitle = dialog.querySelector('h3');
 const counter = dialog.querySelector('.counter');
+const closeButton = dialog.querySelector('.close');
+const previousButton = dialog.querySelector('.prev');
+const nextButton = dialog.querySelector('.next');
+const reduceMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+let swapTimer;
+let closeTimer;
 
 const escapeHtml = value => String(value).replace(/[&<>'"]/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]);
 const imagePath = (series, item) => `assets/${series.folder}/${item.file}`;
@@ -40,13 +46,53 @@ filters.forEach(button => button.addEventListener('click', () => {
   seriesGroups.forEach(group => { group.hidden = selected !== 'all' && group.dataset.category !== selected; });
 }));
 
-function showWork(index) {
+function openLightbox() {
+  if (dialog.open) return;
+  dialog.classList.remove('is-closing');
+  dialog.showModal();
+  if (reduceMotion()) {
+    dialog.classList.add('is-visible');
+    return;
+  }
+  requestAnimationFrame(() => requestAnimationFrame(() => dialog.classList.add('is-visible')));
+}
+
+function closeLightbox() {
+  if (!dialog.open || dialog.classList.contains('is-closing')) return;
+  window.clearTimeout(closeTimer);
+  dialog.classList.add('is-closing');
+  dialog.classList.remove('is-visible');
+  const finish = () => {
+    if (dialog.open) dialog.close();
+    dialog.classList.remove('is-closing');
+  };
+  if (reduceMotion()) finish();
+  else closeTimer = window.setTimeout(finish, 240);
+}
+
+function showWork(index, direction = 0) {
   current = (index + browsingCards.length) % browsingCards.length;
   const card = browsingCards[current];
-  lightboxArt.style.backgroundImage = `url("${card.dataset.image}")`;
-  lightboxTitle.textContent = card.querySelector('h3').textContent;
-  counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(browsingCards.length).padStart(2, '0')}`;
-  if (!dialog.open) dialog.showModal();
+  const applyWork = () => {
+    lightboxArt.style.backgroundImage = `url("${card.dataset.image}")`;
+    lightboxTitle.textContent = card.querySelector('h3').textContent;
+    counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(browsingCards.length).padStart(2, '0')}`;
+  };
+
+  window.clearTimeout(swapTimer);
+  if (!dialog.open || !direction || reduceMotion()) {
+    applyWork();
+    openLightbox();
+    return;
+  }
+
+  lightboxArt.classList.remove('swap-prev', 'swap-next');
+  lightboxArt.classList.add(direction < 0 ? 'swap-prev' : 'swap-next', 'is-swapping');
+  swapTimer = window.setTimeout(() => {
+    applyWork();
+    requestAnimationFrame(() => lightboxArt.classList.remove('is-swapping'));
+    window.setTimeout(() => lightboxArt.classList.remove('swap-prev', 'swap-next'), 280);
+  }, 150);
 }
 
 cards.forEach(card => {
@@ -58,11 +104,17 @@ cards.forEach(card => {
   card.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); openCard(); } });
 });
 
-dialog.querySelector('.close').addEventListener('click', () => dialog.close());
-dialog.querySelector('.prev').addEventListener('click', () => showWork(current - 1));
-dialog.querySelector('.next').addEventListener('click', () => showWork(current + 1));
-dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
-document.addEventListener('keydown', event => { if (!dialog.open) return; if (event.key === 'ArrowLeft') showWork(current - 1); if (event.key === 'ArrowRight') showWork(current + 1); });
+closeButton.addEventListener('click', closeLightbox);
+previousButton.addEventListener('click', () => showWork(current - 1, -1));
+nextButton.addEventListener('click', () => showWork(current + 1, 1));
+dialog.addEventListener('click', event => { if (event.target === dialog) closeLightbox(); });
+dialog.addEventListener('cancel', event => { event.preventDefault(); closeLightbox(); });
+dialog.addEventListener('close', () => dialog.classList.remove('is-visible', 'is-closing'));
+document.addEventListener('keydown', event => {
+  if (!dialog.open) return;
+  if (event.key === 'ArrowLeft') showWork(current - 1, -1);
+  if (event.key === 'ArrowRight') showWork(current + 1, 1);
+});
 
 const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('#main-nav');

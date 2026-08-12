@@ -306,3 +306,82 @@
     overflow-wrap:anywhere;
   }
 }
+
+/* Soft album transitions, depth, and touch feedback. */
+button,
+a,
+[tabindex]{
+  -webkit-tap-highlight-color:transparent;
+}
+button:focus,
+button:focus-visible,
+a:focus,
+a:focus-visible,
+[tabindex]:focus,
+[tabindex]:focus-visible{
+  outline:none!important;
+  box-shadow:none!important;
+}
+.lightbox{
+  opacity:0;
+  transform:translateY(8px) scale(.985);
+  transition:opacity .24s ease,transform .3s cubic-bezier(.22,.75,.25,1);
+}
+.lightbox::backdrop{
+  background:rgba(20,24,21,0);
+  opacity:0;
+  -webkit-backdrop-filter:blur(0);
+  backdrop-filter:blur(0);
+  transition:opacity .26s ease,background-color .26s ease,-webkit-backdrop-filter .3s ease,backdrop-filter .3s ease;
+}
+.lightbox[open].is-visible{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.lightbox[open].is-visible::backdrop{
+  background:rgba(20,24,21,.82);
+  opacity:1;
+  -webkit-backdrop-filter:blur(5px) saturate(.82);
+  backdrop-filter:blur(5px) saturate(.82);
+}
+.lightbox-art{
+  opacity:1;
+  transform:translateX(0) scale(1);
+  filter:blur(0);
+  transition:opacity .2s ease,transform .28s cubic-bezier(.22,.75,.25,1),filter .22s ease;
+  will-change:opacity,transform;
+}
+.lightbox-art.is-swapping{
+  opacity:0;
+  filter:blur(2px);
+}
+.lightbox-art.is-swapping.swap-prev{transform:translateX(14px) scale(.992)}
+.lightbox-art.is-swapping.swap-next{transform:translateX(-14px) scale(.992)}
+.lightbox .close,
+.lightbox .prev,
+.lightbox .next{
+  -webkit-appearance:none;
+  appearance:none;
+  outline:0;
+  box-shadow:none;
+  touch-action:manipulation;
+  transition:transform .14s cubic-bezier(.2,.8,.2,1),opacity .14s ease,color .2s ease;
+  transform-origin:center;
+}
+.lightbox .close:hover,
+.lightbox .prev:hover,
+.lightbox .next:hover{transform:scale(1.06)}
+.lightbox .close:active,
+.lightbox .prev:active,
+.lightbox .next:active{
+  transform:scale(.82);
+  opacity:.58;
+}
+@media(prefers-reduced-motion:reduce){
+  .lightbox,
+  .lightbox::backdrop,
+  .lightbox-art,
+  .lightbox .close,
+  .lightbox .prev,
+  .lightbox .next{transition:none}
+}
