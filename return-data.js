@@ -1,4 +1,5 @@
 window.RETURN_PHOTOS = [
+  { file: "IMG_20260813_012030_231.jpg", title: "小小日常" },
   { file: "IMG_20260812_215445_391.jpg", title: "小小日常" },
   { file: "IMG_20260812_215749_606.jpg", title: "小小日常" },
   { file: "IMG_20260812_215442_331.jpg", title: "小小日常" },
@@ -158,7 +159,6 @@ window.RETURN_PHOTOS = [
   { file: "IMG_20260408_020106_837.jpg", title: "小小日常" },
   { file: "IMG_20260408_020129_824.jpg", title: "小小日常" },
   { file: "IMG_20260408_020135_871.jpg", title: "小小日常" },
-  { file: "IMG_20260408_020201_259.jpg", title: "小小日常" },
   { file: "IMG_20260408_020205_374.jpg", title: "小小日常" },
   { file: "IMG_20260408_020223_858.jpg", title: "小小日常" },
   { file: "IMG_20260408_020241_837.jpg", title: "小小日常" },

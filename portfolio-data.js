@@ -22,12 +22,15 @@ window.PORTFOLIO_SERIES = [
     items: [
       { file: '2511230909736879.jpg', title: '撫子' },
       { file: '2511230909734803.jpg', title: '撫子' },
+      { file: 'MEITU_20250611_223906088.jpg', title: '撫子' },
       { file: '2510150854760851.jpg', title: '橙子塔' },
       { file: '喫茶ゆめのこ-小女給.jpg', title: '喫茶ゆめのこ・小女給', rowStart: true },
       { file: '喫茶ゆめのこ-小女給 (2).jpg', title: '喫茶ゆめのこ・小女給' },
       { file: '陽菜.jpg', title: '陽菜' },
+      { file: 'MEITU_20260812_224112889.jpg', title: '陽菜' },
       { file: '芽依.jpg', title: '芽依' },
       { file: '琉璃.jpg', title: '琉璃' },
+      { file: 'MEITU_20260812_162537564.jpg', title: '琉璃' },
       { file: '桃香.jpg', title: '桃香' },
       { file: 'IMG_20260812_003931_132.jpg' },
       { file: 'IMG_20260812_003934_756.jpg' },
@@ -50,14 +53,24 @@ window.PORTFOLIO_SERIES = [
     key: 'season-hakama', short: '季節袴', name: '季節袴系列', folder: '季節袴系列',
     description: '隨四季更迭變換花色，把自然風景收進袖口與裙褶。',
     items: [
-      { file: '2509190821190467.jpg', title: '星之雫' }, { file: '2509190821190694.jpg', title: '櫻之吻' },
-      { file: '2509190821191149.jpg', title: '淡月姫' }, { file: '2509190821190807.jpg', title: '季節袴' },
-      { file: '2509190821191374.jpg', title: '季節袴' }, { file: '2510150854760131.jpg', title: '花陽小町' },
-      { file: '2510150854760132.jpg', title: '紫紬' }, { file: '2603141077127261.jpg', title: '椿子の卒業' },
+      { file: '2509190821190467.jpg', title: '星之雫' },
+      { file: '2509190821190694.jpg', title: '櫻之吻' },
+      { file: 'codex-clipboard-6dc5c403-78ba-47d7-86ca-d262166f0e71.jpg', title: '櫻之吻' },
+      { file: '2509190821191149.jpg', title: '淡月姫' },
+      { file: 'codex-clipboard-dca65245-626e-42eb-998a-5c3f7fc58f3b.jpg', title: '淡月姬' },
+      { file: '2509190821190807.jpg', title: '季節袴' },
+      { file: '2509190821191374.jpg', title: '季節袴' },
+      { file: '2510150854760131.jpg', title: '花陽小町' },
+      { file: '2510150854760132.jpg', title: '紫紬' },
+      { file: '2603141077127261.jpg', title: '椿子の卒業' },
       { file: 'IMG_20260812_004109_071.jpg', title: '椿子の卒業' },
       { file: 'IMG_20260812_004111_944.jpg', title: '椿子の卒業' },
       { file: '2607291280978970.jpg', title: '初夢晴嶺' },
-      { file: 'IMG_20260812_003859_757.jpg', title: '小公主袴' }
+      { file: 'codex-clipboard-0c5c2655-ed5b-4fca-8b86-3508e73e1bfb.jpg', title: '初夢晴嶺' },
+      { file: 'codex-clipboard-25ce017f-8584-47ac-9e96-8132aee0b364.jpg', title: '初夢晴嶺' },
+      { file: 'MEITU_20251030_230711691.jpg', title: '極光' },
+      { file: 'MEITU_20251127_015940229.jpg', title: '聖誕麋鹿' },
+      { file: 'IMG_20260812_003859_757.jpg', title: '小公主袴' },
     ]
   },
   {
@@ -95,7 +108,8 @@ window.PORTFOLIO_SERIES = [
       { file: '紅型 · 島唄.jpg', title: '紅型・島唄' },
       { file: 'IMG_20260812_003853_284.jpg' },
       { file: 'IMG_20260812_004130_405.jpg' },
-      { file: 'IMG_20260812_004132_134.jpg' }
+      { file: 'IMG_20260812_004132_134.jpg' },
+      { file: 'MEITU_20260310_130232693.jpg', title: '琉裝' }
     ]
   },
   { key: 'abe', short: '阿北裝', name: '阿北裝系列', folder: '阿北裝系列', description: '帶著熟悉生活感與幽默氣息的小阿北，是你最棒的飯友。', items: [
@@ -104,15 +118,27 @@ window.PORTFOLIO_SERIES = [
     { file: '阿北裝 (3).jpg' },
     { file: '阿北裝.jpg' }
   ] },
-  { key: 'jirai', short: '地雷系袴', name: '地雷系袴系列', folder: '地雷系袴系列', description: '將甜美、暗色與袴的輪廓混搭成獨特個性。', items: [{ file: '2510180859031527.jpg', title: '心夜／心愛' }] },
+  { key: 'jirai', short: '地雷系袴', name: '地雷系袴系列', folder: '地雷系袴系列', description: '將甜美、暗色與袴的輪廓混搭成獨特個性。', items: [
+    { file: '2510180859031527.jpg', title: '心夜／心愛' },
+    { file: 'MEITU_20251008_164752120.jpg', title: '地雷系袴' },
+    { file: 'MEITU_20251008_124309504.jpg', title: '地雷系袴' },
+    { file: 'MEITU_20250920_155115109.jpg', title: '心夜' },
+    { file: 'MEITU_20251019_125706381.jpg', title: '心愛' },
+    { file: 'MEITU_20251002_134601472.jpg', title: '心愛' },
+    { file: 'MEITU_20251023_105111388.jpg', title: '地雷系袴' }
+  ] },
   { key: 'sari', short: '印度紗麗', name: '印度紗麗系列', folder: '印度紗麗系列', description: '以層疊布料、珠飾與繽紛色彩呈現異國華美和神秘感。', items: [
     { file: '2605151171932026.jpg', title: '蒂雅公主' },
     { file: '764906882_17972678424110232_603608017152939590_n.webp', title: '娜雅公主／蒂雅公主' }
   ] },
-  { key: 'idol', short: '偶像服', name: '偶像服系列', folder: '偶像服系列', description: '把舞台光芒與閃耀細節濃縮成掌心大小的偶像衣裝。', items: [
+  { key: 'idol', short: '偶像服&學生服', name: '偶像服&學生服系列', folder: '偶像服系列', description: '把舞台光芒、青春制服與閃耀細節，濃縮成掌心大小的衣裝。', items: [
     { file: '2601080978719980.jpg', title: '梅乃小夜' },
     { file: 'IMG_20260812_004300_816.jpg' },
-    { file: 'IMG_20260812_004319_436.jpg', title: '櫻色Angel／蜜色Angel' }
+    { file: 'IMG_20260812_004319_436.jpg', title: '櫻色Angel／蜜色Angel' },
+    { file: 'MEITU_20260625_014157864.jpg', title: '偶像服' },
+    { file: 'IMG_20260813_102301_310.jpg', title: '學生服' },
+    { file: 'IMG_20260813_102258_464.jpg', title: '學生服' },
+    { file: 'MEITU_20260322_201230433.jpg', title: '學生服' }
   ] },
   { key: 'sakura-apron', short: '櫻吹雪圍裙', name: '櫻吹雪圍裙', folder: '櫻吹雪圍裙', description: '以飄落櫻花與圍裙輪廓，描繪柔軟明亮的春日氣息。', items: [
     { file: '2603011058131224.jpg', title: '吉野櫻／大島櫻／河津櫻' },
@@ -160,6 +186,35 @@ window.PORTFOLIO_SERIES = [
       { file: 'MEITU_20260728_155910443.jpg', title: '萌翠' },
       { file: 'MEITU_20260728_155959075.jpg', title: '杏露' },
       { file: 'MEITU_20260728_160104953.jpg', title: '空澄' }
+    ]
+  },
+  {
+    key: '20cm-doll-clothes', short: '20公分娃衣', name: '20公分娃衣系列', folder: '20公分娃衣系列',
+    description: '為20公分娃娃量身剪裁，將和服的層次、花色與細節完整收進衣裝。',
+    items: [
+      { file: 'MEITU_20251010_221309681.jpg', title: '20公分娃衣' },
+      { file: 'MEITU_20251010_220813541.jpg', title: '20公分娃衣' },
+      { file: 'MEITU_20251010_221530771.jpg', title: '20公分娃衣' },
+      { file: 'MEITU_20251006_120537833.jpg', title: '20公分娃衣' },
+      { file: 'MEITU_20251006_120633389.jpg', title: '20公分娃衣' }
+    ]
+  },
+  {
+    key: 'resort-dress', short: '渡假', name: '渡假系列', folder: '渡假洋裝系列',
+    description: '帶著輕盈花色與明亮色彩，來一場享受南國氛圍的假期吧!',
+    items: [
+      { file: 'MEITU_20251029_114127388.jpg', title: '渡假洋裝' },
+      { file: 'MEITU_20251108_125408904.jpg', title: '渡假洋裝' },
+      { file: 'MEITU_20260308_113403479.jpg', title: '渡假比基尼' }
+    ]
+  },
+  {
+    key: 'hanbok', short: '韓服', name: '韓服系列', folder: '韓服系列',
+    description: '以明亮色彩與傳統輪廓，將韓服的雅致層次收進小小衣裝。',
+    items: [
+      { file: 'MEITU_20260715_141702888.jpg', title: '韓服' },
+      { file: 'MEITU_20260715_141621830.jpg', title: '韓服' },
+      { file: 'MEITU_20260715_141824985.jpg', title: '韓服' }
     ]
   }
 ];
