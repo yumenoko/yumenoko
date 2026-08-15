@@ -65,6 +65,7 @@ window.PORTFOLIO_SERIES = [
       { file: '2603141077127261.jpg', title: '椿子の卒業' },
       { file: 'IMG_20260812_004109_071.jpg', title: '椿子の卒業' },
       { file: 'IMG_20260812_004111_944.jpg', title: '椿子の卒業' },
+      { file: '1786714139408.jpg', title: '椿子の卒業' },
       { file: '2607291280978970.jpg', title: '初夢晴嶺' },
       { file: 'codex-clipboard-0c5c2655-ed5b-4fca-8b86-3508e73e1bfb.jpg', title: '初夢晴嶺' },
       { file: 'codex-clipboard-25ce017f-8584-47ac-9e96-8132aee0b364.jpg', title: '初夢晴嶺' },
@@ -88,6 +89,7 @@ window.PORTFOLIO_SERIES = [
     items: [
       { file: '2510180859034545.jpg', title: '薩瓦迪卡' }, { file: '2510180859034546.jpg', title: '薩瓦迪卡' },
       { file: '2510180859034559.jpg', title: '薩瓦迪卡' }, { file: '2607011240198813.jpg', title: '口坤卡' },
+      { file: 'MEITU_20260814_202353814.jpg', title: '口坤卡' },
       { file: 'IMG_20260812_003652_233.jpg' },
       { file: 'IMG_20260812_003701_653.jpg' }
     ]
@@ -109,7 +111,9 @@ window.PORTFOLIO_SERIES = [
       { file: 'IMG_20260812_003853_284.jpg' },
       { file: 'IMG_20260812_004130_405.jpg' },
       { file: 'IMG_20260812_004132_134.jpg' },
-      { file: 'MEITU_20260310_130232693.jpg', title: '琉裝' }
+      { file: 'MEITU_20260310_130232693.jpg', title: '琉裝' },
+      { file: '1786714139557.jpg', title: '紅型・島唄' },
+      { file: '1786714139213.jpg', title: '紅型・島唄' }
     ]
   },
   { key: 'abe', short: '阿北裝', name: '阿北裝系列', folder: '阿北裝系列', description: '帶著熟悉生活感與幽默氣息的小阿北，是你最棒的飯友。', items: [
